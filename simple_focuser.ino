@@ -24,10 +24,9 @@ int velp;
 int velm;
 int t_delay = 50;
 int speedness[] = {1,10,50,100,200,400};
-// Declaration for an SSD1306 display connected to I2C (SDA, SCL pins)
+
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
  
 void setup() {
   Serial.begin(115200);
@@ -40,22 +39,17 @@ void setup() {
 
   delay(2000);
   Serial.println(F("Starting!"));
- 
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
     Serial.println(F("SSD1306 allocation failed"));
     for(;;); // Don't proceed, loop forever
   }
   Serial.println(F("Initialized!"));
- 
-  
   display.display();
   delay(2000);
   show_display();
- 
 }
  
 void loop() {
- 
   up = digitalRead(BUTTON_UP);
   if (up==0)moveup (speedness[vel]);
   delay(t_delay);
@@ -112,7 +106,6 @@ void show_display(){
   display.print(F("POS"));
    display.setCursor(60, 10);
   display.print(pos);
- 
   display.setCursor(10, 50);
   display.setTextSize(1);
   display.print(F("VEL"));
