@@ -1,7 +1,7 @@
 /*
- * Versione 1.0 dello sketch per simple focuser. Usa un display led ssd 1306 un modulo a 4 pulsanti e un easydriver
- * con questa configurazione il motore compie un giro in 1600 (micro)passi
- * testato ok su breadboard - 11/01/2024
+ * Versione 1.0 simple focuser. It uses an Arduino Micro Pro, an oled display ssd 1306, a four push-buttons module and an easydriver driving a Nema 11 stepper motor.
+ * With these settings motor turns in in 1600 (micro)steps
+ * tested ok on breadboard - 11/01/2024
  */
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -17,7 +17,7 @@
 #define DIRECTION_PIN           4
 
 int pos = 0;
-int vel = 0;//indice velocità
+int vel = 0;//speedness index
 int up;
 int down;
 int velp;
